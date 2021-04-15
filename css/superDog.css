@@ -1,0 +1,261 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+html,
+body {
+  background: #dddddd;
+}
+
+h1,
+h3,
+h4,
+h5 {
+  text-align: center;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  line-height: 30px;
+  background-color: black;
+  text-align: center;
+}
+
+.footer p {
+  color: #fff;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#navbar-brand img {
+  margin-top: 12px;
+  height: 4rem;
+  width: 12rem;
+}
+
+#tacocat-logo {
+  height: 50px;
+  margin-bottom: 15px;
+  width: auto;
+}
+
+.hero-div {
+  text-align: left;
+}
+
+.hero {
+  width: 75%;
+  height: auto;
+  padding-top: 70px;
+}
+
+@media(max-width: 768px) {
+  .hero-div {
+    text-align: center;
+  }
+}
+
+@media(min-width: 768px) {
+  #app-row {
+    margin-right: 25%;
+    margin-left: 25%;
+    width: 70%;
+  }
+}
+
+#app-form {
+  display: block;
+}
+
+.app-container {
+  padding-top: 100px;
+}
+
+.result {
+  display: none;
+  opacity: 0;
+}
+
+
+#app-hero {
+  height: 15%;
+  width: auto;
+}
+
+.intro {
+  padding-top: 70px;
+  text-align: center;
+}
+
+#fizzBuzz {
+  width: 80%;
+}
+
+.page-break {
+  width: 100%;
+  text-align: center;
+}
+
+/* Header */
+
+.navbar {
+  background-color: black;
+}
+
+.nav-item {
+  margin-left: 2.5rem;
+}
+
+.nav-link {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+}
+
+.nav-social-buttons {
+  width: 10rem;
+}
+
+nav li {
+  position: relative;
+}
+
+@media(min-width: 768px) {
+  .nav-animate::before {
+    transition: 300ms;
+    height: 5px;
+    content: "";
+    position: absolute;
+    background-color: #F2055C;
+    width: 0%;
+    bottom: 2px;
+  }
+
+  .nav-animate:hover::before {
+    width: 90%;
+  }
+
+}
+
+.footer-social-buttons {
+  width: 50rem;
+}
+
+.nav-social-buttons a {
+  margin-right: 1rem;
+}
+
+.nav-icons {
+  color: white;
+}
+
+/* End Header */
+
+body>.container {
+  padding: 60px 15px 0;
+}
+
+.footer>.container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.headshot-div {
+  text-align: center;
+}
+
+.headshot {
+  width: 60%;
+  height: auto;
+  padding-top: 30px;
+  vertical-align: center;
+}
+
+.app-main {
+  padding-top: 200px !important;
+}
+
+@media(min-width: 800px) {
+  #form-div {
+    width: 50%;
+  }
+}
+
+.again-btn {
+  margin-left: 35%;
+  margin-right: 35%;
+  width: 30%;
+}
+
+.boldIt {
+  color: #F2055C;
+  font-weight: bold;
+}
+
+.boldIt2 {
+  color: #3DADF2;
+  font-weight: bold;
+}
+
+.boldIt3 {
+  color: #F2055C;
+  font-weight: bold;
+  text-shadow: 5px 5px #3DADF2;
+}
+
+.app input {
+  margin-bottom: 15px;
+}
+
+.btn-col {
+  text-align: center;
+}
+
+.invisible {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.code-btn-odd {
+  background-color: #3DADF2;
+  border-style: none;
+}
+
+.code-btn-even {
+  background-color: black;
+  border-style: none;
+  color: white;
+  margin: 10px 0;
+}
+
+.code-btn-even:hover,
+.code-btn-odd:hover {
+  background-color: gray;
+}
+
+.again-btn {
+  margin-left: 20px;
+  width: 5rem;
+}
