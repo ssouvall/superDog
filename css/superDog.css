@@ -241,22 +241,6 @@ code {
   width: 30%;
 }
 
-.boldIt {
-  color: #F2055C;
-  font-weight: bold;
-}
-
-.boldIt2 {
-  color: #3DADF2;
-  font-weight: bold;
-}
-
-.boldIt3 {
-  color: #F2055C;
-  font-weight: bold;
-  text-shadow: 5px 5px #3DADF2;
-}
-
 .app input {
   margin-bottom: 15px;
 }
