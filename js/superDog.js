@@ -245,3 +245,9 @@ function deleteEntry() {
 };
 
 document.getElementById("submitBtn").addEventListener("click", saveEvent);
+
+//Make bootstrap nav card nav-items active on app page
+$('#app-list a').on('click', function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+});

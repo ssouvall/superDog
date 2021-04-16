@@ -296,3 +296,11 @@ code {
 .code-btn-odd:hover {
   background-color: gray;
 }
+
+.stats {
+  text-align: right;
+}
+
+.app-card a {
+  color: #D92929;
+}

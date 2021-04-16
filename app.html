@@ -66,147 +66,148 @@
 
     <!-- Begin page content -->
     <main role="main" class="app-main">
+        <!-- Start Card -->
         <div class="container">
-          <div class="card">
-            <div class="card-header">
-              <ul class="nav nav-tabs card-header-tabs" id="app-list" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#instructions" role="tab" aria-controls="instructions" aria-selected="true">Instructions</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#instruction-card2" role="tab" aria-controls="instruction-card2" aria-selected="false">Stats</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#event-details" role="tab" aria-controls="event-details" aria-selected="false">Event Details</a>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body instruction-card">
-              <div class="row">
-                <div class="col app-data">
-                  <h5 class="card-title">Given an array of objects of event data display the following:</h5>
-                  <div class="tab-content mt-3">
-                    <div class="tab-pane active" id="instructions" role="tabpanel">
-                  <ul class="card-text" style="text-align: left;">
-                    <li>Total attendance by city</li>
-                    <li>Average attendance by city</li>
-                    <li>Least attended event by city</li>
-                    <li>Most attended event by city</li>
-                    <li>Show these stats for all events</li>
-                    <li>Add the ability to add additional events</li>
-                  </ul>
-                </div>
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="card app-card">
+              <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs" id="app-list" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#instructions" role="tab" aria-controls="instructions" aria-selected="true">Instructions</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#instruction-card2" role="tab" aria-controls="instruction-card2" aria-selected="false">Event Stats</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#event-details" role="tab" aria-controls="event-details" aria-selected="false">Add Event Details</a>
+                  </li>
+                </ul>
               </div>
-              <div class="row app-data">
-                <div class="col">
-                  <h6 class="card-title"><strong>Below is the array of data you are given:</strong></h6>
-<pre>
-<code class="language-javascript">
-[{event: "ComicCon",city: "New York",state: "New York",attendance: 240000,date: "06/01/2017"},
-{event: "ComicCon",city: "New York",state: "New York",attendance: 250000,date: "06/01/2018"},
-{event: "ComicCon",city: "New York",state: "New York",attendance: 257000,date: "06/01/2019"},
-{event: "ComicCon",city: "San Diego",state: "California",attendance: 130000,date: "06/01/2017"},
-{event: "ComicCon",city: "San Diego",state: "California",attendance: 140000,date: "06/01/2018"},
-{event: "ComicCon",city: "San Diego",state: "California",attendance: 150000,date: "06/01/2019"},
-{event: "HeroesCon",city: "Charlotte",state: "North Carolina",attendance: 40000,date: "06/01/2017"},
-{event: "HeroesCon",city: "Charlotte",state: "North Carolina",attendance: 45000,date: "06/01/2018"},
-{event: "HeroesCon",city: "Charlotte",state: "North Carolina",attendance: 50000,date: "06/01/2019"}]
-                        
-                    
-</code>
-</pre>
-                </div>
-              </div>
-            </div>
-            </div>
-            </div>
+              <div class="card-body">
 
-            <div class="tab-pane" id="instruction-card2">
-              
-            
-            <div>
-              <div class="row stats-row">
-                <div class="col">
-                  <div class="btn-group">
-                    <button class="btn btn-secondary" type="button" id="dropdownMenuButton">
-                      Pick a Location
-                    </button>
-                    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <div id="eventDropDown" class="dropdown-menu">
-                      
+                <div class="tab-content mt-3">
+                  <div class="tab-pane active" id="instructions" role="tabpanel">
+                    <h5 class="card-title">Given an array of objects of event data display the following:</h5>
+                    <ul class="card-text" style="text-align: left;">
+                        <li>Total attendance by city</li>
+                          <li>Average attendance by city</li>
+                          <li>Least attended event by city</li>
+                          <li>Most attended event by city</li>
+                          <li>Show these stats for all events</li>
+                          <li>Add the ability to add additional events</li>
+                        </ul>
+                        <h6 class="card-title"><strong>Below is the array of data you are given:</strong></h6>
+      <pre>
+      <code class="language-javascript">
+      [{event: "ComicCon",city: "New York",state: "New York",attendance: 240000,date: "06/01/2017"},
+      {event: "ComicCon",city: "New York",state: "New York",attendance: 250000,date: "06/01/2018"},
+      {event: "ComicCon",city: "New York",state: "New York",attendance: 257000,date: "06/01/2019"},
+      {event: "ComicCon",city: "San Diego",state: "California",attendance: 130000,date: "06/01/2017"},
+      {event: "ComicCon",city: "San Diego",state: "California",attendance: 140000,date: "06/01/2018"},
+      {event: "ComicCon",city: "San Diego",state: "California",attendance: 150000,date: "06/01/2019"},
+      {event: "HeroesCon",city: "Charlotte",state: "North Carolina",attendance: 40000,date: "06/01/2017"},
+      {event: "HeroesCon",city: "Charlotte",state: "North Carolina",attendance: 45000,date: "06/01/2018"},
+      {event: "HeroesCon",city: "Charlotte",state: "North Carolina",attendance: 50000,date: "06/01/2019"}]
+                              
+                          
+      </code>
+      </pre>
+                  </div>
+                  
+                  <div class="tab-pane" id="instruction-card2" role="tabpanel" aria-labelledby="instruction-card2">  
+                    <div class="container">
+                    <div class="row stats-row">
+                      <div class="col">
+                        <div class="btn-group">
+                          <button class="btn btn-secondary" type="button" id="dropdownMenuButton">
+                            Pick a Location
+                          </button>
+                          <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>
+                          </button>
+                          <div id="eventDropDown" class="dropdown-menu">
+                            
+                          </div>
+                        </div>
+                        <table class="stats-table table table-striped table-responsive w-100 d-block d-md-table">
+                          <thead class="thead-dark">
+                            <tr>
+                              <th id="statsHeader" colspan="2">
+                                Stats for All Events
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                Total Attendance
+                              </td>
+                              <td id="total" class="stats">
+                                100
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                Average Attendance
+                              </td>
+                              <td id="average" class="stats">
+                                100
+                              </td>
+                            </tr>
+                              <td>
+                                Most Attended
+                              </td>
+                              <td id="most" class="stats">
+                                100
+                              </td>
+                            <tr>
+                              <td>
+                                Least Attended
+                              </td>
+                              <td id="least" class="stats">
+                                100
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                   </div>
-                  <table class="stats-table table table-striped">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th id="statsHeader" colspan="2">
-                          Stats for All Events
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          Total Attendance
-                        </td>
-                        <td id="total">
-                          100
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Average Attendance
-                        </td>
-                        <td id="average">
-                          100
-                        </td>
-                      </tr>
-                        <td>
-                          Most Attended
-                        </td>
-                        <td id="most">
-                          100
-                        </td>
-                      <tr>
-                        <td>
-                          Least Attended
-                        </td>
-                        <td id="least">
-                          100
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  </div>
+                  
+                  <div class="tab-pane" id="event-details" role="tabpanel" aria-labelledby="deals-tab">
+                    <div class="container">
+                      <div class="row stats-row">
+                      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#addEvent">Add Event</button>
+                        <div class="col-12"></div>
+                          <table id="resultsTable" class="table table-responsive w-100 d-block d-md-table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th>Event Name</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Attendance</th>
+                                <th>Event Date</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody id="resultsBody">
+                              <!--Data Goes Here-->    
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            </div>
-          
-          
-        </div>
-        <div class="container">
-          <hr>
-          <div class="row stats-row">
-          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#addEvent">Add Event</button>
-          <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th>Event Name</th>
-                <th>City</th>
-                <th>State</th>
-                <th>Attendance</th>
-                <th>Event Date</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="resultsBody">
-              <!--Data Goes Here-->    
-            </tbody>
-          </table>
           </div>
-        </div> 
+        </div>
+      </div>
+
+      <!-- End Card --> 
     </main>
     <br>
     <br>
@@ -281,6 +282,9 @@
   </template>
     <!-- Bootstrap core JavaScript
     ================================================== -->
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
