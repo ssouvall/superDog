@@ -22,20 +22,10 @@ h5 {
   text-align: center;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  line-height: 30px;
-  background-color: black;
-  text-align: center;
-}
-
-.footer p {
-  color: #fff;
-  font-size: 14px;
-  margin: 0;
+hr {
+  border: 3px solid #D92929;
+  border-radius: 2px;
+  margin: 5% 0;
 }
 
 /* Custom page CSS
@@ -46,12 +36,6 @@ h5 {
   margin-top: 12px;
   height: 4rem;
   width: 12rem;
-}
-
-#tacocat-logo {
-  height: 50px;
-  margin-bottom: 15px;
-  width: auto;
 }
 
 .hero-div {
@@ -67,6 +51,14 @@ h5 {
 .btn {
   background-color: #D92929;
   border: none;
+}
+
+#deleteButton {
+  background-color: #6c757d;
+}
+
+#delete {
+  text-align: right;
 }
 
 .btn:hover {
@@ -109,10 +101,6 @@ h5 {
 .intro {
   padding-top: 70px;
   text-align: center;
-}
-
-#fizzBuzz {
-  width: 80%;
 }
 
 .page-break {
@@ -161,6 +149,22 @@ nav li {
 
 }
 
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  line-height: 30px;
+  background-color: #333;
+  text-align: center;
+}
+
+.footer p {
+  color: #fff;
+  font-size: 14px;
+  margin: 0;
+}
+
 .footer-social-buttons {
   width: 50rem;
 }
@@ -203,6 +207,19 @@ code {
   padding-top: 200px !important;
 }
 
+.app-main h3 {
+  text-align: left;
+}
+
+.app-main li {
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+.app-data {
+  margin-top: 3%;
+}
+
 @media(min-width: 800px) {
   #form-div {
     width: 50%;
@@ -235,6 +252,12 @@ code {
   margin-bottom: 15px;
 }
 
+.stats-row {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
 .btn-col {
   text-align: center;
 }
@@ -248,7 +271,7 @@ code {
 }
 
 .code-btn-odd {
-  background-color: #F27D16;
+  background-color: #D92929;
   border-style: none;
 }
 
@@ -262,8 +285,4 @@ code {
 .code-btn-even:hover,
 .code-btn-odd:hover {
   background-color: gray;
-}
-
-#delete {
-  text-align: center;
 }

@@ -20,6 +20,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700&display=swap" rel="stylesheet">
     <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/css/prism.css">
     <link rel="stylesheet" href="/css/superDog.css">
   </head>
 
@@ -66,6 +67,99 @@
     <!-- Begin page content -->
     <main role="main" class="app-main">
         <div class="container">
+          <div class="row">
+            <div class="col app-data">
+              <h3>Given an array of objects of event data display the following:</h3>
+              <br>
+              <ul>
+                <li>Total attendance by city</li>
+                <li>Average attendance by city</li>
+                <li>Least attended event by city</li>
+                <li>Most attended event by city</li>
+                <li>Show these stats for all events</li>
+                <li>Add the ability to add additional events</li>
+              </ul>
+            </div>
+            <div class="card card-body app-data">
+              <h6 class="card-title"><strong>Below is the array of data you are given:</strong></h6>
+<pre class="line-numbers">
+<code class="language-javascript">
+[{event: "ComicCon",city: "New York",state: "New York",attendance: 240000,date: "06/01/2017"},
+{event: "ComicCon",city: "New York",state: "New York",attendance: 250000,date: "06/01/2018"},
+{event: "ComicCon",city: "New York",state: "New York",attendance: 257000,date: "06/01/2019"},
+{event: "ComicCon",city: "San Diego",state: "California",attendance: 130000,date: "06/01/2017"},
+{event: "ComicCon",city: "San Diego",state: "California",attendance: 140000,date: "06/01/2018"},
+{event: "ComicCon",city: "San Diego",state: "California",attendance: 150000,date: "06/01/2019"},
+{event: "HeroesCon",city: "Charlotte",state: "North Carolina",attendance: 40000,date: "06/01/2017"},
+{event: "HeroesCon",city: "Charlotte",state: "North Carolina",attendance: 45000,date: "06/01/2018"},
+{event: "HeroesCon",city: "Charlotte",state: "North Carolina",attendance: 50000,date: "06/01/2019"}]
+                        
+                    
+</code>
+</pre>
+            </div>
+          </div>
+          <hr>
+          <div class="row stats-row">
+            <div class="col">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Pick a Location
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">New York</a>
+                  <a class="dropdown-item" href="#">San Diego</a>
+                  <a class="dropdown-item" href="#">Charlotte</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">All</a>
+                </div>
+              </div>
+              <table class="stats-table table table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th colspan="2">
+                      Stats for All Events
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      Total Attendance
+                    </td>
+                    <td id="totalAttendance">
+                      <!--Data Goes Here-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Average Attendance
+                    </td>
+                    <td id="avgAttendance">
+                      <!--Data Goes Here-->
+                    </td>
+                  </tr>
+                    <td>
+                      Most Attended
+                    </td>
+                    <td id="mostAttended">
+                      <!--Data Goes Here-->
+                    </td>
+                  <tr>
+                    <td>
+                      Least Attended
+                    </td>
+                    <td id="leastAttended">
+                      <!--Data Goes Here-->
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </div>
+          </div>
+        <div class="container">
+          <hr>
           <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#addEvent">Add Event</button>
           <table class="table">
             <thead class="thead-dark">
@@ -75,7 +169,7 @@
                 <th>State</th>
                 <th>Attendance</th>
                 <th>Event Date</th>
-                <th>Delete</th>
+                <th></th>
               </tr>
             </thead>
             <tbody id="resultsBody">
@@ -152,7 +246,9 @@
       <td id="delete"><button type="button" id="deleteButton" class="btn btn-secondary" onclick="deleteEntry()">X</button></td>
     </tr>
   </template>
-
+  <template id="stats-template">
+    
+  </template>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -160,6 +256,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- GSAP CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <!-- PrismJS -->
+    <script src="/js/prism.js"></script>
     <!-- Custom JavaScript -->
     <script src="/js/superDog.js"></script>
   </body>
