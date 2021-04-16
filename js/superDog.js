@@ -65,6 +65,81 @@ let superDogArray = [{
 
 loadEventDetails();
 
+let filteredEvents = superDogArray;
+
+function buildDropDown() {
+    let eventDropDown = document.getElementById("eventDropDown");
+
+    //...new Set() is a built-in JS syntax
+    let distinctEvents = [...new Set(superDogArray.map((event) => event.city))];
+
+    let linkedHTMLEnd = '<div class="dropdown-divider"></div><a class="dropdown-item" onclick="getEvents(this)" data-string="All" >All</a>';
+    let resultsHTML = "";
+
+    for (let i = 0; i < distinctEvents.length; i++) {
+
+        resultsHTML += `<a class="dropdown-item" onclick="getEvents(this)" data-string="${distinctEvents[i]}">${distinctEvents[i]}</a>`;
+    };
+
+    resultsHTML += linkedHTMLEnd;
+    eventDropDown.innerHTML = resultsHTML;
+    displayStats();
+};
+
+//get the events for the selected city
+function getEvents(element) {
+    let city = element.getAttribute("data-string");
+    let curEvents = JSON.parse(localStorage.getItem("superDogArray")) || superDogArray;
+    filteredEvents = curEvents;
+    document.getElementById("statsHeader").innerHTML = `Stats for ${city} Events`;
+    if (city != "All") {
+        filteredEvents = curEvents.filter(function (item) {
+            if (item.city == city) {
+                return item;
+            };
+        });
+    };
+
+};
+
+function displayStats() {
+    let total = 0;
+    let average = 0;
+    let most = 0;
+    let least = -1;
+    let currentAttendance = 0;
+
+    for (let i = 0; i < filteredEvents.length; i++) {
+        currentAttendance = filteredEvents[i].attendance;
+        total += currentAttendance;
+
+        if (most < currentAttendance) {
+            most = currentAttendance;
+        };
+
+        if (least > currentAttendance || least < 0) {
+            least = currentAttendance;
+        };
+    };
+
+    average = total / filteredEvents.length;
+
+    document.getElementById("total").innerHTML = total.toLocaleString();
+    document.getElementById("most").innerHTML = most.toLocaleString();
+    document.getElementById("least").innerHTML = least.toLocaleString();
+    document.getElementById("average").innerHTML = average.toLocaleString(
+        undefined, {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+        }
+    );
+
+};
+
+function displayData() {
+
+};
+
 //load the event details on the page
 function loadEventDetails() {
     let eventDetails = [];

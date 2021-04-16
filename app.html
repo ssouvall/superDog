@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/css/superDog.css">
   </head>
 
-  <body>
+  <body onload="buildDropDown()">
 
     <header>
       <!-- Fixed navbar -->
@@ -67,22 +67,40 @@
     <!-- Begin page content -->
     <main role="main" class="app-main">
         <div class="container">
-          <div class="row">
-            <div class="col app-data">
-              <h3>Given an array of objects of event data display the following:</h3>
-              <br>
-              <ul>
-                <li>Total attendance by city</li>
-                <li>Average attendance by city</li>
-                <li>Least attended event by city</li>
-                <li>Most attended event by city</li>
-                <li>Show these stats for all events</li>
-                <li>Add the ability to add additional events</li>
+          <div class="card">
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs" id="app-list" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#instructions" role="tab" aria-controls="instructions" aria-selected="true">Instructions</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#instruction-card2" role="tab" aria-controls="instruction-card2" aria-selected="false">Stats</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#event-details" role="tab" aria-controls="event-details" aria-selected="false">Event Details</a>
+                </li>
               </ul>
             </div>
-            <div class="card card-body app-data">
-              <h6 class="card-title"><strong>Below is the array of data you are given:</strong></h6>
-<pre class="line-numbers">
+            <div class="card-body instruction-card">
+              <div class="row">
+                <div class="col app-data">
+                  <h5 class="card-title">Given an array of objects of event data display the following:</h5>
+                  <div class="tab-content mt-3">
+                    <div class="tab-pane active" id="instructions" role="tabpanel">
+                  <ul class="card-text" style="text-align: left;">
+                    <li>Total attendance by city</li>
+                    <li>Average attendance by city</li>
+                    <li>Least attended event by city</li>
+                    <li>Most attended event by city</li>
+                    <li>Show these stats for all events</li>
+                    <li>Add the ability to add additional events</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row app-data">
+                <div class="col">
+                  <h6 class="card-title"><strong>Below is the array of data you are given:</strong></h6>
+<pre>
 <code class="language-javascript">
 [{event: "ComicCon",city: "New York",state: "New York",attendance: 240000,date: "06/01/2017"},
 {event: "ComicCon",city: "New York",state: "New York",attendance: 250000,date: "06/01/2018"},
@@ -97,69 +115,80 @@
                     
 </code>
 </pre>
-            </div>
-          </div>
-          <hr>
-          <div class="row stats-row">
-            <div class="col">
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Pick a Location
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">New York</a>
-                  <a class="dropdown-item" href="#">San Diego</a>
-                  <a class="dropdown-item" href="#">Charlotte</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">All</a>
                 </div>
               </div>
-              <table class="stats-table table table-striped">
-                <thead class="thead-dark">
-                  <tr>
-                    <th colspan="2">
-                      Stats for All Events
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      Total Attendance
-                    </td>
-                    <td id="totalAttendance">
-                      <!--Data Goes Here-->
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Average Attendance
-                    </td>
-                    <td id="avgAttendance">
-                      <!--Data Goes Here-->
-                    </td>
-                  </tr>
-                    <td>
-                      Most Attended
-                    </td>
-                    <td id="mostAttended">
-                      <!--Data Goes Here-->
-                    </td>
-                  <tr>
-                    <td>
-                      Least Attended
-                    </td>
-                    <td id="leastAttended">
-                      <!--Data Goes Here-->
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
             </div>
-          </div>
+            </div>
+
+            <div class="tab-pane" id="instruction-card2">
+              
+            
+            <div>
+              <div class="row stats-row">
+                <div class="col">
+                  <div class="btn-group">
+                    <button class="btn btn-secondary" type="button" id="dropdownMenuButton">
+                      Pick a Location
+                    </button>
+                    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div id="eventDropDown" class="dropdown-menu">
+                      
+                    </div>
+                  </div>
+                  <table class="stats-table table table-striped">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th id="statsHeader" colspan="2">
+                          Stats for All Events
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Total Attendance
+                        </td>
+                        <td id="total">
+                          100
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Average Attendance
+                        </td>
+                        <td id="average">
+                          100
+                        </td>
+                      </tr>
+                        <td>
+                          Most Attended
+                        </td>
+                        <td id="most">
+                          100
+                        </td>
+                      <tr>
+                        <td>
+                          Least Attended
+                        </td>
+                        <td id="least">
+                          100
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            </div>
+          
+          
+        </div>
         <div class="container">
           <hr>
+          <div class="row stats-row">
           <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#addEvent">Add Event</button>
           <table class="table">
             <thead class="thead-dark">
@@ -176,6 +205,7 @@
               <!--Data Goes Here-->    
             </tbody>
           </table>
+          </div>
         </div> 
     </main>
     <br>
@@ -191,7 +221,7 @@
           </div>
             <div class="row footer-row">
               <div class="col-12">
-                  <p>© 2021 <a href="//stephensouvall.com">Stephen Souvall</a> all right reserved</p>
+                  <p>© 2021 <a id="footer-link" href="//stephensouvall.com">Stephen Souvall</a> all right reserved</p>
               </div>
           </div>
       </div>
