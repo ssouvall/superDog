@@ -65,13 +65,13 @@ let superDogArray = [{
 
 loadEventDetails();
 
-let filteredEvents = superDogArray;
+var filteredEvents = superDogArray;
 
 function buildDropDown() {
     let eventDropDown = document.getElementById("eventDropDown");
-
+    let curEvents = JSON.parse(sessionStorage.getItem("superDogArray")) || superDogArray;
     //...new Set() is a built-in JS syntax
-    let distinctEvents = [...new Set(superDogArray.map((event) => event.city))];
+    let distinctEvents = [...new Set(curEvents.map((event) => event.city))];
 
     let linkedHTMLEnd = '<div class="dropdown-divider"></div><a class="dropdown-item" onclick="getEvents(this)" data-string="All" >All</a>';
     let resultsHTML = "";
@@ -89,7 +89,7 @@ function buildDropDown() {
 //get the events for the selected city
 function getEvents(element) {
     let city = element.getAttribute("data-string");
-    let curEvents = JSON.parse(localStorage.getItem("superDogArray")) || superDogArray;
+    let curEvents = JSON.parse(sessionStorage.getItem("superDogArray")) || superDogArray;
     filteredEvents = curEvents;
     document.getElementById("statsHeader").innerHTML = `Stats for ${city} Events`;
     if (city != "All") {
@@ -99,7 +99,7 @@ function getEvents(element) {
             };
         });
     };
-
+    displayStats();
 };
 
 function displayStats() {
@@ -136,10 +136,6 @@ function displayStats() {
 
 };
 
-function displayData() {
-
-};
-
 //load the event details on the page
 function loadEventDetails() {
     let eventDetails = [];
@@ -151,13 +147,13 @@ function loadEventDetails() {
 
 //load up the data needed for display
 function getData() {
-    //get the events array from localStorage and parse it
-    let eventDetails = JSON.parse(localStorage.getItem("superDogArray")) || [];
+    //get the events array from sessionStorage and parse it
+    let eventDetails = JSON.parse(sessionStorage.getItem("superDogArray")) || [];
 
     //if the array is empty, populate with hardcoded event details
     if (eventDetails.length === 0) {
         eventDetails = superDogArray;
-        localStorage.setItem("superDogArray", JSON.stringify(eventDetails));
+        sessionStorage.setItem("superDogArray", JSON.stringify(eventDetails));
     };
 
     return eventDetails;
@@ -166,22 +162,27 @@ function getData() {
 //take the data from the new event modal and create a new object, then push into events array
 function saveEvent() {
     //get the events out of local storage and parse them
-    let eventDetails = JSON.parse(localStorage.getItem("superDogArray")) || superDogArray;
+    let eventDetails = JSON.parse(sessionStorage.getItem("superDogArray")) || superDogArray;
 
     //create a new object with the new data entered by the user
     let obj = {};
     obj["event"] = document.getElementById("newName").value;
     obj["city"] = document.getElementById("newCity").value;
     obj["state"] = document.getElementById("newState").value;
-    obj["attendance"] = document.getElementById("newAttendance").value;
-    obj["date"] = document.getElementById("newDate").value;
+    obj["attendance"] = parseInt(document.getElementById("newAttendance").value);
+
+    let eventDate = document.getElementById("newDate").value;
+    let eventDate2 = `${eventDate} 00:00`
+
+    obj["date"] = new Date(eventDate2).toLocaleDateString();
 
     //push the new object into the eventDetails array
     eventDetails.push(obj);
 
-    //load the changes into the localStorage
-    localStorage.setItem("superDogArray", JSON.stringify(eventDetails));
+    //load the changes into the sessionStorage
+    sessionStorage.setItem("superDogArray", JSON.stringify(eventDetails));
 
+    buildDropDown();
     displayData(eventDetails);
 };
 
@@ -194,6 +195,15 @@ function displayData(eventDetails) {
     //clear the table
     resultsBody.innerHTML = "";
     //loop through the events array
+    //grab the events from local storage
+    let curEvents = JSON.parse(sessionStorage.getItem("superDogArray")) || [];
+
+    if (curEvents.length == 0) {
+        curEvents = superDogArray;
+        sessionStorage.setItem("superDogArray", JSON.stringify(curEvents));
+    };
+
+
     for (let i = 0; i < eventDetails.length; i++) {
         //get data row of the table
         const dataRow = document.importNode(template.content, true);
@@ -213,7 +223,7 @@ function displayData(eventDetails) {
 
 //delete an entry
 function deleteEntry() {
-    let eventDetails = JSON.parse(localStorage.getItem("superDogArray")) || superDogArray;
+    let eventDetails = JSON.parse(sessionStorage.getItem("superDogArray")) || superDogArray;
 
     //access the rowIndex of the line that the delete button clicked is on
     let cell = this.event.path[2].rowIndex;
@@ -226,10 +236,11 @@ function deleteEntry() {
         };
     };
 
-    //update the superDogArray in localStorage
-    localStorage.setItem("superDogArray", JSON.stringify(eventDetails));
+    //update the superDogArray in sessionStorage
+    sessionStorage.setItem("superDogArray", JSON.stringify(eventDetails));
 
     //display the updated event data
+    buildDropDown()
     displayData(eventDetails);
 };
 
