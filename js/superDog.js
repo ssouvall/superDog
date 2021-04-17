@@ -230,9 +230,8 @@ function deleteEntry() {
 
     //loop through the events array and find an event with index that matches rowIndex-1
     for (let i = 0; i < eventDetails.length; i++) {
-        if (i == cell - 1) {
+        if (i === cell - 1) {
             eventDetails.splice(i, 1);
-            i--;
         };
     };
 
