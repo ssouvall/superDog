@@ -48,6 +48,11 @@ hr {
   padding-top: 70px;
 }
 
+#superdog-text {
+  height: auto;
+  width: 100%;
+}
+
 .btn {
   background-color: #D92929;
   border: none;
@@ -245,23 +250,10 @@ code {
   margin-bottom: 15px;
 }
 
-.stats-row {
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
-  text-align: left;
-}
+
 
 .btn-col {
   text-align: center;
-}
-
-.invisible {
-  display: none;
-}
-
-.visible {
-  display: block;
 }
 
 .stats {
@@ -272,8 +264,21 @@ code {
   color: #D92929;
 }
 
+@media(min-width: 768px) {
+  .code-container {
+    padding: 100px;
+  }
+
+  .stats-row {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+  }
+}
+
 .code-container {
-  padding: 100px;
+  padding-top: 100px;
 }
 
 .code-btn {
