@@ -77,10 +77,10 @@
                     <a class="nav-link active" href="#instructions" role="tab" aria-controls="instructions" aria-selected="true">Instructions</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#instruction-card2" role="tab" aria-controls="instruction-card2" aria-selected="false">Event Stats</a>
+                    <a class="nav-link" href="#event-details" role="tab" aria-controls="instruction-card2" aria-selected="false">Add Event Details</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#event-details" role="tab" aria-controls="event-details" aria-selected="false">Add Event Details</a>
+                    <a class="nav-link" href="#instruction-card2" role="tab" aria-controls="event-details" aria-selected="false">See Event Stats</a>
                   </li>
                 </ul>
               </div>
@@ -114,6 +114,30 @@
       </code>
       </pre>
                   </div>
+
+                  <div class="tab-pane" id="event-details" role="tabpanel" aria-labelledby="deals-tab">
+                    <div class="container">
+                      <div class="row stats-row">
+                      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#addEvent">Add Event</button>
+                        <div class="col-12"></div>
+                          <table id="resultsTable" class="table table-responsive w-100 d-block d-md-table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th>Event Name</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Attendance</th>
+                                <th>Event Date</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody id="resultsBody">
+                              <!--Data Goes Here-->    
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
                   
                   <div class="tab-pane" id="instruction-card2" role="tabpanel" aria-labelledby="instruction-card2">  
                     <div class="container">
@@ -176,29 +200,7 @@
                   </div>
                   </div>
                   
-                  <div class="tab-pane" id="event-details" role="tabpanel" aria-labelledby="deals-tab">
-                    <div class="container">
-                      <div class="row stats-row">
-                      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#addEvent">Add Event</button>
-                        <div class="col-12"></div>
-                          <table id="resultsTable" class="table table-responsive w-100 d-block d-md-table">
-                            <thead class="thead-dark">
-                              <tr>
-                                <th>Event Name</th>
-                                <th>City</th>
-                                <th>State</th>
-                                <th>Attendance</th>
-                                <th>Event Date</th>
-                                <th></th>
-                              </tr>
-                            </thead>
-                            <tbody id="resultsBody">
-                              <!--Data Goes Here-->    
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
+                  
                   </div>
                 </div>
               </div>

@@ -212,7 +212,7 @@ function displayData(eventDetails) {
         dataRow.getElementById("name").textContent = eventDetails[i].event;
         dataRow.getElementById("city").textContent = eventDetails[i].city;
         dataRow.getElementById("state").textContent = eventDetails[i].state;
-        dataRow.getElementById("attendance").textContent = eventDetails[i].attendance;
+        dataRow.getElementById("attendance").textContent = formatNumber(eventDetails[i].attendance);
         dataRow.getElementById("date").textContent = eventDetails[i].date;
 
         //write the data to resultsBody
@@ -251,3 +251,8 @@ $('#app-list a').on('click', function (e) {
     e.preventDefault()
     $(this).tab('show')
 });
+
+//format numbers 
+function formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}

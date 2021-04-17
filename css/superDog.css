@@ -264,27 +264,26 @@ code {
   display: block;
 }
 
-.code-btn-odd {
-  background-color: #D92929;
-  border-style: none;
-}
-
-.code-btn-even {
-  background-color: black;
-  border-style: none;
-  color: white;
-  margin: 10px 0;
-}
-
-.code-btn-even:hover,
-.code-btn-odd:hover {
-  background-color: gray;
-}
-
 .stats {
   text-align: right;
 }
 
 .app-card a {
   color: #D92929;
+}
+
+.code-container {
+  padding: 100px;
+}
+
+.code-btn {
+  color: white;
+}
+
+.accordion {
+  text-align: center;
+}
+
+.accordion .btn {
+  width: 80%;
 }
